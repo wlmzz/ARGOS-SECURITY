@@ -1,0 +1,4 @@
+psutil>=5.9
+requests>=2.31
+watchdog>=4.0
+python-evtx>=0.8.0; sys_platform == "win32"

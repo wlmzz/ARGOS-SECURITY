@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+build/
+.env
+
+# Node
+node_modules/
+dashboard/dist/
+dashboard/.vite/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# DB / secrets
+*.db
+*.sqlite
+*.key
+*.pem
+*.token
+
+# LM Studio / models
+*.gguf
+*.bin
+*.safetensors

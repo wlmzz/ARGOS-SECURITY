@@ -1,0 +1,18 @@
+[Unit]
+Description=ARGOS Realtime Threat Watcher
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/argos/agent
+ExecStart=/usr/bin/python3 /opt/argos/agent/realtime_watcher.py
+Restart=always
+RestartSec=5
+StandardOutput=append:/opt/argos/logs/watcher.log
+StandardError=append:/opt/argos/logs/watcher.log
+EnvironmentFile=-/etc/environment
+
+[Install]
+WantedBy=multi-user.target

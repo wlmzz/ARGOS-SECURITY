@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    ports:
+      - "8443:8443"
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-sqlite+aiosqlite:///data/argos.db}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - ABUSEIPDB_API_KEY=${ABUSEIPDB_API_KEY:-}
+      - OLLAMA_URL=${OLLAMA_URL:-http://ollama:11434}
+    volumes:
+      - argos_data:/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+    # After first start, pull the model manually:
+    # docker exec argos-ollama-1 ollama pull phi4:14b
+
+volumes:
+  argos_data:
+  ollama_models:
