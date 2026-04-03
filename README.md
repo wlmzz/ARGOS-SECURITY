@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="ARGOS Logo" width="200"/>
+  <img src="assets/logo.png" alt="ARGOS Logo" width="500"/>
 </p>
 
 # ARGOS — Open Source AI Security Platform
